@@ -3,7 +3,6 @@ extends Resource
 const _DIRECTIONS = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
 
 var base_grid : TileMap
-var overlay : TileMap
 var node_to_map : Dictionary = {}
 var traversible_node_to_map : Dictionary = {}
 
