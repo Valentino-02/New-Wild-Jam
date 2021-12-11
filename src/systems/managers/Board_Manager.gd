@@ -1,5 +1,4 @@
 extends Resource
-class_name BoardManager
 
 const _DIRECTIONS = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
 

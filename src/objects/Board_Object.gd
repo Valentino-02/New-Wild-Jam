@@ -2,6 +2,7 @@ extends Node2D
 class_name BoardObject
 
 var board_manager = preload("res://src/systems/managers/Board_Manager.tres")
+var game_manager = preload("res://src/systems/managers/Game_Manager.tres")
 
 var _map_position : Vector2 
 
