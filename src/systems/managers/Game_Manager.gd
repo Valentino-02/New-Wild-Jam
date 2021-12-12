@@ -11,7 +11,5 @@ func toggle_is_placing() -> void:
 		is_placing = true
 		object = load("res://src/objects/TestObject.tscn")
 		mouse.placing_down(object)
-	elif is_placing == true:
-		is_placing = false
-		mouse.stop_placing()
+
 
