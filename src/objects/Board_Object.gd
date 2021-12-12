@@ -6,10 +6,11 @@ var game_manager = preload("res://src/systems/managers/Game_Manager.tres")
 
 var _map_position : Vector2 
 
-func _ready():
-	_map_position = _world_to_map(position)
+func place_down(map_position) -> void:
+	_map_position = map_position
 	position = _map_to_world(_map_position)
 	board_manager.add(self, _map_position, 1)
+	print("hey")
 
 func _world_to_map(world_position: Vector2) -> Vector2:
 	return board_manager.base_grid.world_to_map(world_position)
