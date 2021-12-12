@@ -25,8 +25,8 @@ run/main_scene="res://src/levels/Test_Level.tscn"
 
 [display]
 
-window/size/width=780
-window/size/height=438
+window/size/width=500
+window/size/height=280
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

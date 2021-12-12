@@ -30,9 +30,11 @@ func place_down(object, map_position) -> void:
 		parent.place_down(object, map_position)
 		stop_placing()
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event):
 	if InputEventMouseMotion:
 		position = get_global_mouse_position()
+
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and ! event.is_echo():
 		_map_position = board_manager.base_grid.world_to_map(position)
 		if is_placing:
