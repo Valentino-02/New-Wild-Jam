@@ -1,7 +1,6 @@
 extends Resource
 
 
-#var object : PackedScene 
 var object 
 
 var mouse : Node

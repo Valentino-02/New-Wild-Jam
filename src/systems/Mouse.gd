@@ -29,9 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_map_position = board_manager.base_grid.world_to_map(position)
 		if is_placing:
 			place_down(object_to_place, _map_position)
-
-
-
+	
 	if InputEventMouseMotion:
 		position = get_global_mouse_position()
 
