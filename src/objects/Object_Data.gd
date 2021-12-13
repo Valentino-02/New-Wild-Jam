@@ -8,7 +8,7 @@ var objects : Dictionary = {
 		"icon_texture": "res://assets/sprites/objects/Character.png"
 	},
 	"plant_0": {
-		"path": "res://src/objects/plant/PlantTest.tscn",
+		"path": "res://src/objects/plant/Plant.tscn",
 		"cost": 40,
 		"decoration": 60,
 		"icon_texture": "res://assets/sprites/objects/Character.png"

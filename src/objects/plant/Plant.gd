@@ -10,12 +10,12 @@ var type_data: Dictionary
 var cur_state: int = 0
 var next_growth: int
 
-#func place_down(map_position) -> void:
-#	.place_down(map_position)
-#	last_growth = time_manager.time
-#	type_data = plant_manager.plant_data[type]
-#	time_manager.connect("time_changed", self, "time_changed")
-#	_update_state()
+func place_down(map_position) -> void:
+	.place_down(map_position)
+	last_growth = time_manager.time
+	type_data = plant_manager.plant_data[type]
+	time_manager.connect("time_changed", self, "time_changed")
+	_update_state()
 
 func _ready() -> void:
 	last_growth = time_manager.time
