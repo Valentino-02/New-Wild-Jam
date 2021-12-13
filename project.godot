@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="Cozy Building Game"
 run/main_scene="res://src/levels/Test_Level.tscn"
 
+[autoload]
+
+Utils="*res://src/Utils.gd"
+
 [display]
 
 window/size/width=780
