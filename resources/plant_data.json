@@ -1,0 +1,10 @@
+{
+	"flower": {
+		"growth_time": [ 2, 4 ],
+		"textures": [
+			"res://assets/sprites/plants/flower_seedling.png",
+			"res://assets/sprites/plants/flower_growing.png",
+			"res://assets/sprites/plants/flower_grown.png"
+		]
+	}
+}
