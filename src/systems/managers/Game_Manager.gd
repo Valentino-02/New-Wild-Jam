@@ -1,21 +1,24 @@
 extends Resource
 
-var objects_by_id : Dictionary = {
-	0 : "res://src/objects/TestObject.tscn" , 
-	1 : "res://src/objects/TestObject2.tscn" 
-	}
+var object_data = preload("res://src/objects/Object_Data.tres")
+
+var current_object
 
 var mouse : Node
+var money_display : Node
 var is_placing := false
-var money : int = 100
+var money : int = 100 setget set_money
 
-
-func start_placing(id) -> void:
+func start_placing() -> void:
 	if is_placing == false:
 		is_placing = true
-		var object = load(get_path_by_id(id))
+		var object = load(object_data.get_path_by_name(current_object))
 		mouse.placing_down(object)
 
-func get_path_by_id (id: int) -> String:
-	return objects_by_id[id]
+func pay_up() -> void:
+	self.money -= object_data.get_cost_by_name(current_object)
 
+func set_money(value) -> void:
+	money = value
+	money = clamp(money, 0, 999)
+	money_display.update_money(money)

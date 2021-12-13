@@ -1,6 +1,6 @@
 extends Node2D
 
-var current_object
+var current_object 
 
 func place_down(object, map_position) -> void:
 	current_object = object.instance()

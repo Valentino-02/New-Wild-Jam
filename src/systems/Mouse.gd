@@ -10,7 +10,6 @@ var _map_position : Vector2
 
 onready var parent = get_parent()
 
-
 func _init():
 	game_manager.mouse = self
 
@@ -28,6 +27,7 @@ func stop_placing() -> void:
 func place_down(object, map_position) -> void:
 	if ! board_manager.is_ocupied(map_position) and board_manager.base_grid.is_in_grid(map_position):
 		parent.place_down(object, map_position)
+		game_manager.pay_up()
 		stop_placing()
 
 func _input(event):
