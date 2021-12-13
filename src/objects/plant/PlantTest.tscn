@@ -8,7 +8,6 @@ debug_lbl = NodePath("CanvasLayer/DEBUG")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 390, 219 )
-current = true
 
 [node name="PlantContainer" type="YSort" parent="."]
 

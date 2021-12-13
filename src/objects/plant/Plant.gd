@@ -2,7 +2,6 @@ extends Node2D
 
 var plant_manager = preload("res://src/systems/managers/Plant_Manager.tres")
 var time_manager = preload("res://src/systems/managers/Time_Manager.tres")
-#var plant_data = preload("res://resources/plant_data.tres")
 
 onready var sprite = $Sprite
 var type: String
@@ -20,16 +19,13 @@ func _ready() -> void:
 func _update_state() -> void:
 	sprite.texture = load(type_data.textures[cur_state])
 	
-	print("Stages: %s" % type_data.growth_time.size())
 	if type_data.growth_time.size() == cur_state:
 		time_manager.disconnect("time_changed", self, "time_changed")
 	else:
 		next_growth = time_manager.add_times(last_growth, type_data.growth_time[cur_state])
-		print("Next growth: %s " % time_manager.get_time_str(next_growth))
 	
 
 func time_changed(_past_time, new_time) -> void:
 	if new_time >= next_growth:
-		print("Hit new growth stage")
 		cur_state += 1
 		_update_state()
