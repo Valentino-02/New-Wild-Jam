@@ -3,11 +3,15 @@ extends Resource
 var objects : Dictionary = {
 	"test_0": {
 		"path": "res://src/objects/TestObject.tscn",
-		"cost": 30
+		"cost": 30,
+		"decoration": 50,
+		"icon_texture": "res://assets/sprites/objects/Character.png"
 	},
-	"test_1": {
-		"path": "res://src/objects/TestObject2.tscn",
-		"cost": 40
+	"plant_0": {
+		"path": "res://src/objects/plant/PlantTest.tscn",
+		"cost": 40,
+		"decoration": 60,
+		"icon_texture": "res://assets/sprites/objects/Character.png"
 	}
 }
 

@@ -1,13 +1,13 @@
 extends Resource
 
 var object_data = preload("res://src/objects/Object_Data.tres")
-
-var current_object
-
 var mouse : Node
 var money_display : Node
+
+var current_object : String
 var is_placing := false
 var money : int = 100 setget set_money
+var decoration : int
 
 func start_placing() -> void:
 	if is_placing == false:

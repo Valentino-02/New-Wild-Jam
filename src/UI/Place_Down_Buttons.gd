@@ -17,5 +17,5 @@ func _on_Object1_pressed():
 	game_manager.start_placing()
 
 func _on_Object2_pressed():
-	game_manager.current_object = "test_1"
+	game_manager.current_object = "plant_0"
 	game_manager.start_placing()
