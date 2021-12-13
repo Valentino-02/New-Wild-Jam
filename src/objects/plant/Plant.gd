@@ -23,7 +23,7 @@ func _update_state() -> void:
 		time_manager.disconnect("time_changed", self, "time_changed")
 	else:
 		next_growth = time_manager.add_times(last_growth, type_data.growth_time[cur_state])
-	
+		last_growth = time_manager.time
 
 func time_changed(_past_time, new_time) -> void:
 	if new_time >= next_growth:
