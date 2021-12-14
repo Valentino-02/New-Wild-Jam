@@ -12,8 +12,6 @@ var money : int = 100 setget set_money
 var decoration : int
 
 func start_placing() -> void:
-	if is_placing == false:
-		is_placing = true
 		current_object_path = object_data.get_path_by_name(current_object)
 		mouse.placing_down()
 

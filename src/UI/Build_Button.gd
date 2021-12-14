@@ -12,7 +12,6 @@ func _ready() -> void:
 	game_manager.buttons.append(self)
 	update_can_buy(game_manager.money)
 
-
 func _on_BuildButton_pressed() -> void:
 	if _can_buy:
 		game_manager.current_object = object_name

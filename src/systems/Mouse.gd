@@ -14,9 +14,16 @@ func _init():
 	game_manager.mouse = self
 
 func placing_down() -> void:
-	_is_placing = true
-	_object_to_place = load(game_manager.current_object_path).instance()
-	self.add_child(_object_to_place)
+	if _is_placing == false:
+		_is_placing = true
+		_object_to_place = load(game_manager.current_object_path).instance()
+		self.add_child(_object_to_place)
+	if _is_placing == true:
+		_object_to_place.queue_free()
+		_object_to_place = load(game_manager.current_object_path).instance()
+		self.add_child(_object_to_place)
+		
+	
 
 func stop_placing() -> void:
 	_is_placing = false
