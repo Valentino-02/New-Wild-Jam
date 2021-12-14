@@ -25,6 +25,7 @@ func stop_placing() -> void:
 	object_in_mouse.queue_free()
 
 func place_down(object, map_position) -> void:
+	print(board_manager.base_grid)
 	if ! board_manager.is_ocupied(map_position) and board_manager.base_grid.is_in_grid(map_position):
 		parent.place_down(object, map_position)
 		game_manager.pay_up()
