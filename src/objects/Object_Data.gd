@@ -17,7 +17,8 @@ var objects : Dictionary = {
 			"res://assets/sprites/plants/flower_seedling.png",
 			"res://assets/sprites/plants/flower_growing.png",
 			"res://assets/sprites/plants/flower_grown.png"
-		]
+		],
+		"v_offset": -12
 	}
 }
 

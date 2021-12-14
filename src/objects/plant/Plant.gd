@@ -4,7 +4,7 @@ var object_data = preload("res://src/objects/Object_Data.tres")
 var game_manager = preload("res://src/systems/managers/Game_Manager.tres")
 var time_manager = preload("res://src/systems/managers/Time_Manager.tres")
 
-onready var sprite = $Sprite
+onready var sprite: Sprite = $Sprite
 var type: String 
 var last_growth: int
 var type_data: Dictionary
@@ -22,6 +22,7 @@ func _ready() -> void:
 	type = game_manager.current_object
 	var plant_textures = object_data.objects[type]["growth_textures"]
 	sprite.texture = load(plant_textures[plant_textures.size() - 1])
+	sprite.offset.y = object_data.objects[type]["v_offset"]
 
 func _update_state() -> void:
 	sprite.texture = load(type_data.growth_textures[cur_state])
