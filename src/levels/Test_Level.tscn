@@ -61,6 +61,7 @@ position = Vector2( 0, 150 )
 [node name="Floor" type="AnimatedSprite" parent="."]
 position = Vector2( 10, 85 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Cloud2" type="Sprite" parent="."]
