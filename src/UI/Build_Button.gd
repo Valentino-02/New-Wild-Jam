@@ -7,6 +7,7 @@ var object_name: String
 func _ready() -> void:
 	var my_data = object_data.objects[object_name]
 	texture_normal = load(my_data.icon_texture)
+	add_to_group("build_buttons")
 
 func _on_BuildButton_pressed() -> void:
 	game_manager.current_object = object_name
