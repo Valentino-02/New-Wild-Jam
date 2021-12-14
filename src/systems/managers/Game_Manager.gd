@@ -3,6 +3,7 @@ extends Resource
 var object_data = preload("res://src/objects/Object_Data.tres")
 var mouse : Node
 var money_display : Node
+var buttons : Array
 
 var current_object : String
 var current_object_path : String
@@ -26,4 +27,6 @@ func set_money(value) -> void:
 	money = value
 	money = clamp(money, 0, 999)
 	money_display.update_money(money)
-	
+	for button in buttons:
+		button.update_can_buy(money)
+
