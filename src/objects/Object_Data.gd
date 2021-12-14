@@ -7,11 +7,17 @@ var objects : Dictionary = {
 		"decoration": 50,
 		"icon_texture": "res://assets/sprites/objects/Character.png"
 	},
-	"plant_0": {
+	"flower": {
 		"path": "res://src/objects/plant/Plant.tscn",
 		"cost": 40,
 		"decoration": 60,
-		"icon_texture": "res://assets/sprites/objects/Character.png"
+		"icon_texture": "res://assets/sprites/objects/Character.png",
+		"growth_time": [ 512, 1024 ],
+		"growth_textures": [
+			"res://assets/sprites/plants/flower_seedling.png",
+			"res://assets/sprites/plants/flower_growing.png",
+			"res://assets/sprites/plants/flower_grown.png"
+		]
 	}
 }
 

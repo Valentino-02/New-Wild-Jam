@@ -1,6 +1,7 @@
 extends BoardObject
 
-var plant_manager = preload("res://src/systems/managers/Plant_Manager.tres")
+var object_data = preload("res://src/objects/Object_Data.tres")
+var game_manager = preload("res://src/systems/managers/Game_Manager.tres")
 var time_manager = preload("res://src/systems/managers/Time_Manager.tres")
 
 onready var sprite = $Sprite
@@ -13,24 +14,23 @@ var next_growth: int
 func place_down(map_position) -> void:
 	.place_down(map_position)
 	last_growth = time_manager.time
-	type_data = plant_manager.plant_data[type]
+	type_data = object_data.objects[type]
 	time_manager.connect("time_changed", self, "time_changed")
 	_update_state()
 
 func _ready() -> void:
-	last_growth = time_manager.time
-	type_data = plant_manager.plant_data[type]
-	time_manager.connect("time_changed", self, "time_changed")
-	_update_state()
+	type = game_manager.current_object
+	var plant_textures = object_data.objects[type]["growth_textures"]
+	sprite.texture = load(plant_textures[plant_textures.size() - 1])
 
 func _update_state() -> void:
-	sprite.texture = load(type_data.textures[cur_state])
+	sprite.texture = load(type_data.growth_textures[cur_state])
 	
 	if type_data.growth_time.size() == cur_state:
 		time_manager.disconnect("time_changed", self, "time_changed")
 	else:
 		next_growth = time_manager.add_times(last_growth, type_data.growth_time[cur_state])
-		last_growth = time_manager.time
+		last_growth = time_manager.time	
 
 func time_changed(_past_time, new_time) -> void:
 	if new_time >= next_growth:

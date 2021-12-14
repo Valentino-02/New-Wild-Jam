@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/sprites/background/Clouds.png" type="Texture" id=9]
 [ext_resource path="res://src/systems/WaterTileMap.gd" type="Script" id=10]
 [ext_resource path="res://src/systems/DirtTileMap.gd" type="Script" id=11]
+[ext_resource path="res://src/UI/ActionMenu.tscn" type="PackedScene" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
@@ -33,7 +34,10 @@ script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ActionMenu" parent="CanvasLayer" instance=ExtResource( 12 )]
+
 [node name="Place_Down_Buttons" parent="CanvasLayer" instance=ExtResource( 2 )]
+visible = false
 
 [node name="Money_Display" parent="CanvasLayer" instance=ExtResource( 5 )]
 margin_left = 412.486
