@@ -1,24 +1,32 @@
 extends Resource
 
 var objects : Dictionary = {
-	"test_0": {
-		"path": "res://src/objects/TestObject.tscn",
-		"cost": 30,
-		"decoration": 50,
-		"icon_texture": "res://assets/sprites/objects/Character.png"
-	},
-	"flower": {
+	"apple": {
 		"path": "res://src/objects/plant/Plant.tscn",
 		"cost": 40,
 		"decoration": 60,
-		"icon_texture": "res://assets/sprites/objects/Character.png",
+		"icon_texture": "res://assets/sprites/UI/Apple.png",
+		"place" : "basic",
+		"growth_time": [ 512, 1024 ],
+		"growth_textures": [
+			"res://assets/sprites/plants/apple_tree_1.png",
+			"res://assets/sprites/plants/apple_tree_2.png",
+			"res://assets/sprites/plants/apple_tree_3_no_fruit.png"
+		]
+	},
+	"tomato": {
+		"path": "res://src/objects/plant/Plant.tscn",
+		"cost": 40,
+		"decoration": 60,
+		"icon_texture": "res://assets/sprites/UI/Tomatoe.png",
+		"place" : "dirt",
+    "v_offset": -12,
 		"growth_time": [ [ 0, 4, 0 ], [ 0, 4, 0 ] ],
 		"growth_textures": [
-			"res://assets/sprites/plants/flower_seedling.png",
-			"res://assets/sprites/plants/flower_growing.png",
-			"res://assets/sprites/plants/flower_grown.png"
-		],
-		"v_offset": -12
+			"res://assets/sprites/plants/tomato_plant_1.png",
+			"res://assets/sprites/plants/tomato_plant_2.png",
+			"res://assets/sprites/plants/tomato_plant_3_no_fruit.png"
+		]
 	}
 }
 

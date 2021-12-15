@@ -4,10 +4,14 @@ var game_manager = load("res://src/systems/managers/Game_Manager.tres")
 var time_manager = load("res://src/systems/managers/Time_Manager.tres")
 onready var board_obj_container = $BoardObjectSort as Node2D
 
-func place_down(object, map_position) -> void:
-	var current_object = object.instance()
+func place_down(map_position) -> void:
+	var current_object = load(game_manager.current_object_path).instance()
 	board_obj_container.add_child(current_object)
 	current_object.place_down(map_position)
 
 func _process(delta: float) -> void:
 	time_manager.process(delta)
+
+func _input(event):
+	if event.is_action_pressed("space"):
+		modulate = Color(0.4, 0.4, 0.5)
