@@ -4,6 +4,8 @@ var object_data = preload("res://src/objects/Object_Data.tres")
 var mouse : Node
 var money_display : Node
 
+var state : String = "idle"
+
 var current_object : String
 var is_placing := false
 var money : int = 100 setget set_money

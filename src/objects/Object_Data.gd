@@ -12,7 +12,7 @@ var objects : Dictionary = {
 		"cost": 40,
 		"decoration": 60,
 		"icon_texture": "res://assets/sprites/objects/Character.png",
-		"growth_time": [ 512, 1024 ],
+		"growth_time": [ [ 0, 4, 0 ], [ 0, 4, 0 ] ],
 		"growth_textures": [
 			"res://assets/sprites/plants/flower_seedling.png",
 			"res://assets/sprites/plants/flower_growing.png",
