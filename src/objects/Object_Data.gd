@@ -25,7 +25,8 @@ var objects : Dictionary = {
 			"res://assets/sprites/plants/tomato_plant_1.png",
 			"res://assets/sprites/plants/tomato_plant_2.png",
 			"res://assets/sprites/plants/tomato_plant_3_no_fruit.png"
-		]
+		],
+		"v_offset": -12
 	}
 }
 
