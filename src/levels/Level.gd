@@ -6,7 +6,7 @@ var time = 0.0
 onready var board_obj_container = $BoardObjectSort as Node2D
 
 func _ready():
-	$AnimationPlayer.play("DayNight")
+	$Day_n_Night.play("DayNight")
 
 func place_down(map_position) -> void:
 	var current_object = load(game_manager.current_object_path).instance()

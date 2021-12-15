@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UI/ChangeCamara.gd" type="Script" id=1]
+
+[node name="Change_Camera" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -472.0
+margin_bottom = -247.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 0.650391
+margin_top = 1.0
+margin_right = 27.6504
+margin_bottom = 33.0
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

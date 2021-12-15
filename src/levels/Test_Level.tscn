@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/systems/tiles/GroundTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/background/Clouds.tscn" type="PackedScene" id=2]
@@ -8,9 +8,41 @@
 [ext_resource path="res://assets/sprites/background/map1-Sheet-export.png" type="Texture" id=6]
 [ext_resource path="res://src/background/Sun_and_Moon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sprites/background/Background.png" type="Texture" id=8]
+[ext_resource path="res://src/UI/ChangeCamara.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/systems/tiles/WaterTileMap.gd" type="Script" id=10]
 [ext_resource path="res://src/systems/tiles/DirtTileMap.gd" type="Script" id=11]
 [ext_resource path="res://src/UI/ActionMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/systems/Camera.gd" type="Script" id=13]
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 59.8484 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "move_left"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 2 ),
+"update": 0,
+"values": [ Vector2( 0, 59.8484 ), Vector2( -497.803, 59.8484 ) ]
+}
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
@@ -73,17 +105,44 @@ margin_top = 6.2363
 margin_right = -8.51392
 margin_bottom = -258.764
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera_Change" parent="CanvasLayer" instance=ExtResource( 9 )]
+margin_left = 223.0
+margin_top = 5.0
+margin_right = -247.0
+margin_bottom = -241.0
+
+[node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, 59.8484 )
 current = true
+script = ExtResource( 13 )
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 0, 58.2711 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
+anims/RESET = SubResource( 7 )
+anims/move_left = SubResource( 6 )
+
+[node name="Floor_and_Background" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite" parent="Floor_and_Background"]
+position = Vector2( -242.865, -36.4121 )
 z_index = -2
 texture = ExtResource( 8 )
+offset = Vector2( 242.865, 94.6832 )
 
-[node name="Floor" type="AnimatedSprite" parent="."]
+[node name="Background2" type="Sprite" parent="Floor_and_Background"]
+position = Vector2( -258.218, -36.4121 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+z_index = -2
+texture = ExtResource( 8 )
+offset = Vector2( 242.865, 94.6832 )
+
+[node name="Floor" type="AnimatedSprite" parent="Floor_and_Background"]
 position = Vector2( 10, 85 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="Floor2" type="AnimatedSprite" parent="Floor_and_Background"]
+position = Vector2( -510.365, 85 )
 frames = SubResource( 3 )
 frame = 1
 playing = true
@@ -100,16 +159,16 @@ script = ExtResource( 4 )
 visible = false
 
 [node name="GroundTileMap" parent="Tiles" instance=ExtResource( 1 )]
-tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 7, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262151, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327687, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0 )
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 7, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262151, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327687, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 917491, 1, 0, 917492, 1, 0, 917493, 1, 0, 917494, 1, 0, 917498, 1, 0, 983027, 1, 0, 983028, 1, 0, 983029, 1, 0, 983030, 1, 0, 983031, 1, 0, 983032, 1, 0, 983033, 1, 0, 983034, 1, 0, 1048563, 1, 0, 1048564, 1, 0, 1048565, 1, 0, 1048566, 1, 0, 1048567, 1, 0, 1048568, 1, 0, 1048569, 1, 0, 1048570, 1, 0, 1114099, 1, 0, 1114100, 1, 0, 1114101, 1, 0, 1114102, 1, 0, 1114103, 1, 0, 1114104, 1, 0, 1114105, 1, 0, 1114106, 1, 0, 1179635, 1, 0, 1179636, 1, 0, 1179637, 1, 0, 1179638, 1, 0, 1179639, 1, 0, 1179642, 1, 0, 1245171, 1, 0, 1245172, 1, 0, 1245173, 1, 0, 1245174, 1, 0, 1245175, 1, 0, 1245178, 1, 0, 1310707, 1, 0, 1310708, 1, 0, 1310709, 1, 0, 1310710, 1, 0, 1310711, 1, 0, 1310712, 1, 0, 1310713, 1, 0, 1310714, 1, 0, 1376243, 1, 0, 1376244, 1, 0, 1376245, 1, 0, 1376246, 1, 0, 1376247, 1, 0, 1376248, 1, 0, 1376249, 1, 0, 1376250, 1, 0 )
 
 [node name="WaterTileMap" parent="Tiles" instance=ExtResource( 1 )]
 modulate = Color( 0.0666667, 0.270588, 1, 1 )
-tile_data = PoolIntArray( 262149, 1, 0, 262150, 1, 0, 327685, 1, 0, 327686, 1, 0 )
+tile_data = PoolIntArray( 262149, 1, 0, 262150, 1, 0, 327685, 1, 0, 327686, 1, 0, 1179640, 1, 0, 1179641, 1, 0, 1245176, 1, 0, 1245177, 1, 0 )
 script = ExtResource( 10 )
 
 [node name="DirtTileMap" parent="Tiles" instance=ExtResource( 1 )]
 modulate = Color( 1, 0.709804, 0, 1 )
-tile_data = PoolIntArray( 4, 1, 0, 5, 1, 0, 6, 1, 0 )
+tile_data = PoolIntArray( 4, 1, 0, 5, 1, 0, 6, 1, 0, 917495, 1, 0, 917496, 1, 0, 917497, 1, 0 )
 script = ExtResource( 11 )
 
 [node name="BoardObjectSort" type="YSort" parent="."]
@@ -117,6 +176,6 @@ script = ExtResource( 11 )
 [node name="Clouds" parent="." instance=ExtResource( 2 )]
 position = Vector2( -242.865, -78.3505 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Day_n_Night" type="AnimationPlayer" parent="."]
 anims/DayNight = SubResource( 4 )
 anims/RESET = SubResource( 5 )
