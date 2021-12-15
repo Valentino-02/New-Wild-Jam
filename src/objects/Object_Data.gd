@@ -12,7 +12,8 @@ var objects : Dictionary = {
 			"res://assets/sprites/plants/apple_tree_1.png",
 			"res://assets/sprites/plants/apple_tree_2.png",
 			"res://assets/sprites/plants/apple_tree_3_no_fruit.png"
-		]
+		],
+		"v_offset": -30
 	},
 	"tomato": {
 		"path": "res://src/objects/plant/Plant.tscn",
