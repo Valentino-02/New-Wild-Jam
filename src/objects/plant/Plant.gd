@@ -48,7 +48,6 @@ func _update_state() -> void:
 		var growth_time_int: int = time_manager.date_to_int(growth_time[0], growth_time[1], growth_time[2])
 		last_growth = time_manager.time
 		next_growth = time_manager.add_times(last_growth, growth_time_int)
-		print("Next growth 2: %s" % time_manager.get_time_str(next_growth))
 
 func time_changed(_past_time, new_time) -> void:
 	if needs_water:
@@ -65,7 +64,6 @@ func time_changed(_past_time, new_time) -> void:
 
 func water() -> void:
 	next_growth = time_manager.add_times(time_manager.time, growth_remainder)
-	print("Next growth: %s" % time_manager.get_time_str(next_growth))
 	needs_water = false
 	next_water = time_manager.add_times(time_manager.time, water_interval)
 	alert_sprite.visible = false
