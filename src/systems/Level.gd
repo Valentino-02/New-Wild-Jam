@@ -11,3 +11,7 @@ func place_down(map_position) -> void:
 
 func _process(delta: float) -> void:
 	time_manager.process(delta)
+
+func _input(event):
+	if event.is_action_pressed("space"):
+		modulate = Color(0.4, 0.4, 0.5)

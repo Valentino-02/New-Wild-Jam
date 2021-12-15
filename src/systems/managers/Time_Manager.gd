@@ -3,7 +3,8 @@ extends Resource
 signal time_changed(old_time, new_time)
 
 const TIME_CHECK_INTERVAL = 15 * 60 # 15 minutes * 60 seconds
-var time_scale = 900 # how many in game seconds should pass every second
+var day_duration = 96  # how long a day takes in real seconds
+var time_scale = 24*60*60/day_duration # how many in game seconds should pass every second
 var time_counter = 0
 
 var time: int = date_to_int(1, 22, 0)
