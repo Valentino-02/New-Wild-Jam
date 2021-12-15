@@ -1,7 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/systems/GroundTileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/UI/Place_Down_Buttons.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/systems/Level.gd" type="Script" id=3]
 [ext_resource path="res://src/systems/Mouse.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Money_Display.tscn" type="PackedScene" id=5]
@@ -36,9 +35,6 @@ script = ExtResource( 3 )
 
 [node name="ActionMenu" parent="CanvasLayer" instance=ExtResource( 12 )]
 
-[node name="Place_Down_Buttons" parent="CanvasLayer" instance=ExtResource( 2 )]
-visible = false
-
 [node name="Money_Display" parent="CanvasLayer" instance=ExtResource( 5 )]
 margin_left = 412.486
 margin_top = 6.2363
@@ -65,6 +61,7 @@ position = Vector2( 0, 150 )
 [node name="Floor" type="AnimatedSprite" parent="."]
 position = Vector2( 10, 85 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Cloud2" type="Sprite" parent="."]
@@ -94,3 +91,5 @@ visible = false
 modulate = Color( 1, 0.709804, 0, 1 )
 tile_data = PoolIntArray( 4, 1, 0, 5, 1, 0, 6, 1, 0 )
 script = ExtResource( 11 )
+
+[node name="BoardObjectSort" type="YSort" parent="."]
