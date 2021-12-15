@@ -51,7 +51,7 @@ func get_free_cells_by_steps(starting_cell: Vector2, steps: int) -> Array:
 	var cells := [starting_cell]
 	var testing_cells := [starting_cell]
 	var new_testing_cells := []
-	for i in range(steps):
+	for _i in range(steps):
 		while ! testing_cells.empty():
 			var testing_cell = testing_cells.pop_back()
 			for direction in _DIRECTIONS:
@@ -146,7 +146,7 @@ func get_cells_in_line(starting_cell: Vector2, steps: int, direction: Vector2) -
 	var cells := [starting_cell]
 	var testing_cells := [starting_cell]
 	var new_testing_cells := []
-	for i in range(steps):
+	for _i in range(steps):
 		while ! testing_cells.empty():
 			var testing_cell : Vector2 = testing_cells.pop_back()
 			var new_cell: Vector2 = testing_cell + direction

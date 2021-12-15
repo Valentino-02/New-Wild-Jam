@@ -11,6 +11,7 @@
 [ext_resource path="res://src/systems/WaterTileMap.gd" type="Script" id=10]
 [ext_resource path="res://src/systems/DirtTileMap.gd" type="Script" id=11]
 [ext_resource path="res://src/UI/ActionMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/levels/DEBUG_LBL.gd" type="Script" id=13]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
@@ -34,12 +35,24 @@ script = ExtResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ActionMenu" parent="CanvasLayer" instance=ExtResource( 12 )]
+mouse_filter = 2
 
 [node name="Money_Display" parent="CanvasLayer" instance=ExtResource( 5 )]
 margin_left = 412.486
 margin_top = 6.2363
 margin_right = -8.51392
 margin_bottom = -258.764
+
+[node name="DEBUG_LBL" type="Label" parent="CanvasLayer"]
+margin_left = 94.0
+margin_top = 9.0
+margin_right = 134.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, 59.8484 )

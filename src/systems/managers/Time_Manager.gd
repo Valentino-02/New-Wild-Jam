@@ -45,6 +45,9 @@ func date_to_int(day: int, hour: int, minute: int) -> int:
 
 func add_times(time1: int, time2: int) -> int:
 	return normalize_time(normalize_time(time1) + normalize_time(time2))
+	
+func sub_times(time1: int, time2: int) -> int:
+	return normalize_time(normalize_time(time1) - normalize_time(time2))
 
 func normalize_time(t: int) -> int:
 	var day = (t & DAY_MASK) >> DAY_OFFSET
