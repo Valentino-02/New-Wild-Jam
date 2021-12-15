@@ -11,6 +11,9 @@ var is_placing := false
 var money : int = 100 setget set_money
 var decoration : int
 
+const MIN_MONEY: int = 0
+const MAX_MONEY: int = 999
+
 func start_placing() -> void:
 	if is_placing == false:
 		is_placing = true
@@ -22,5 +25,5 @@ func pay_up() -> void:
 
 func set_money(value) -> void:
 	money = value
-	money = clamp(money, 0, 999)
+	money = int(clamp(money, MIN_MONEY, MAX_MONEY))
 	money_display.update_money(money)
