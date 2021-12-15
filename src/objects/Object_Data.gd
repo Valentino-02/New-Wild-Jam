@@ -7,7 +7,8 @@ var objects : Dictionary = {
 		"decoration": 60,
 		"icon_texture": "res://assets/sprites/UI/Apple.png",
 		"place" : "basic",
-		"growth_time": [ 512, 1024 ],
+		"v_offset": -34,
+		"growth_time": [ [ 0, 4, 0 ], [ 0, 4, 0 ] ],
 		"growth_textures": [
 			"res://assets/sprites/plants/apple_tree_1.png",
 			"res://assets/sprites/plants/apple_tree_2.png",
@@ -20,7 +21,7 @@ var objects : Dictionary = {
 		"decoration": 60,
 		"icon_texture": "res://assets/sprites/UI/Tomatoe.png",
 		"place" : "dirt",
-    "v_offset": -12,
+		"v_offset": -12,
 		"growth_time": [ [ 0, 4, 0 ], [ 0, 4, 0 ] ],
 		"growth_textures": [
 			"res://assets/sprites/plants/tomato_plant_1.png",
