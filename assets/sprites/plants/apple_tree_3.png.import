@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tomato_plant-Sheet.png-448b6ba31d69e581bf804d6f3761631d.stex"
+path="res://.import/apple_tree_3.png-3bca53cc5fcfd34b05b2ba788de347f6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/plants/tomato_plant-Sheet.png"
-dest_files=[ "res://.import/tomato_plant-Sheet.png-448b6ba31d69e581bf804d6f3761631d.stex" ]
+source_file="res://assets/sprites/plants/apple_tree_3.png"
+dest_files=[ "res://.import/apple_tree_3.png-3bca53cc5fcfd34b05b2ba788de347f6.stex" ]
 
 [params]
 

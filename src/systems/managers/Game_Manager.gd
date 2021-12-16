@@ -6,6 +6,7 @@ var money_display : Node
 var buttons : Array
 var current_object : String
 var current_object_path : String
+var location : String = "top_right"
 var money : int = 100 setget set_money
 var decoration : int
 
