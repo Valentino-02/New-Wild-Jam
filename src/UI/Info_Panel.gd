@@ -11,7 +11,7 @@ func _process(_delta: float) -> void:
 	if game_manager.state != "harvest" and game_manager.state != "water":
 		return
 	
-	var mouse_pos = get_global_mouse_position()
+	var mouse_pos = get_global_mouse_position() - Vector2(250, 80)
 	var grid_pos = board_manager.base_grid.world_to_map(mouse_pos)
 	var plant = board_manager.get_cell_node(grid_pos, 1)
 	

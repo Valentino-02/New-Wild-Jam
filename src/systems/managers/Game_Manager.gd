@@ -22,6 +22,9 @@ func start_placing() -> void:
 func pay_up() -> void:
 	self.money -= object_data.get_cost_by_name(current_object)
 
+func add_money(value: int) -> void:
+	set_money(money + value)
+
 func set_money(value) -> void:
 	money = value
 	money = int(clamp(money, MIN_MONEY, MAX_MONEY))
