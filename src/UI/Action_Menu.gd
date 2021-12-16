@@ -24,7 +24,7 @@ func _on_WaterButton_toggled(_button_pressed: bool) -> void:
 		game_manager.state = "water"
 	_fix_state()
 
-func _on_HarvestButton_toggled(button_pressed: bool) -> void:
+func _on_HarvestButton_toggled(_button_pressed: bool) -> void:
 	if harvest_button.pressed:
 		build_button.pressed = false
 		water_button.pressed = false

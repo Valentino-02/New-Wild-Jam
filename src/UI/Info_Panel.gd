@@ -7,7 +7,7 @@ var time_manager = preload("res://src/systems/managers/Time_Manager.tres")
 onready var type_label = $VBoxContainer/TypeLabel
 onready var status_label = $VBoxContainer/StatusLabel
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if game_manager.state != "harvest" and game_manager.state != "water":
 		return
 	
