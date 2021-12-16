@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UI/Info_Panel.gd" type="Script" id=1]
+
+[node name="InfoPanel" type="PanelContainer"]
+margin_right = 14.0
+margin_bottom = 14.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 136.0
+margin_bottom = 47.0
+
+[node name="TypeLabel" type="Label" parent="VBoxContainer"]
+margin_right = 129.0
+margin_bottom = 14.0
+text = "Apple Tree"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 129.0
+margin_bottom = 22.0
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+margin_top = 26.0
+margin_right = 129.0
+margin_bottom = 40.0
+text = "Grows in 2d 3h 45m"
