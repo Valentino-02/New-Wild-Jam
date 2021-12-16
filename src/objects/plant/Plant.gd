@@ -69,9 +69,9 @@ func water() -> void:
 	alert_sprite.visible = false
 
 func _set_alert_position() -> void:
-	alert_sprite.position = Vector2(sprite.texture.get_width() / 2, -sprite.texture.get_height() - alert_sprite.texture.get_height())
+	alert_sprite.position = Vector2(float(sprite.texture.get_width()) / 2, -sprite.texture.get_height() - alert_sprite.texture.get_height())
 
-func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_Area2D_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if needs_water and game_manager.state == "water":
 			water()
