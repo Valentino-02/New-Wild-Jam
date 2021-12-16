@@ -48,7 +48,6 @@ func _update_state() -> void:
 		var growth_time_int: int = time_manager.date_to_int(growth_time[0], growth_time[1], growth_time[2])
 		last_growth = time_manager.time
 		next_growth = time_manager.add_times(last_growth, growth_time_int)
-		print("Next growth 2: %s" % time_manager.get_time_str(next_growth))
 
 func time_changed(_past_time, new_time) -> void:
 	if needs_water:
@@ -65,15 +64,14 @@ func time_changed(_past_time, new_time) -> void:
 
 func water() -> void:
 	next_growth = time_manager.add_times(time_manager.time, growth_remainder)
-	print("Next growth: %s" % time_manager.get_time_str(next_growth))
 	needs_water = false
 	next_water = time_manager.add_times(time_manager.time, water_interval)
 	alert_sprite.visible = false
 
 func _set_alert_position() -> void:
-	alert_sprite.position = Vector2(sprite.texture.get_width() / 2, -sprite.texture.get_height() - alert_sprite.texture.get_height())
+	alert_sprite.position = Vector2(float(sprite.texture.get_width()) / 2, -sprite.texture.get_height() - alert_sprite.texture.get_height())
 
-func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_Area2D_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if needs_water and game_manager.state == "water":
 			water()
