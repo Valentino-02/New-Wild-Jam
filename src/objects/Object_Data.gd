@@ -3,6 +3,7 @@ extends Resource
 var objects : Dictionary = {
 	"apple": {
 		"path": "res://src/objects/plant/Plant.tscn",
+		"display_name": "Apple Tree",
 		"cost": 40,
 		"decoration": 60,
 		"icon_texture": "res://assets/sprites/UI/Apple.png",
@@ -17,6 +18,7 @@ var objects : Dictionary = {
 	},
 	"tomato": {
 		"path": "res://src/objects/plant/Plant.tscn",
+		"display_name": "Tomatoes",
 		"cost": 40,
 		"decoration": 60,
 		"icon_texture": "res://assets/sprites/UI/Tomatoe.png",
