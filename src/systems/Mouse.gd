@@ -41,23 +41,25 @@ func stop_placing() -> void:
 	_object_to_place.queue_free()
 
 func place_down(map_position) -> void:
-	if ! board_manager.is_ocupied(map_position):
-		match object_data.objects[game_manager.current_object].place:
-			"basic":
-				if board_manager.base_grid.is_in_grid(map_position):
-					level.place_down(map_position)
-					game_manager.pay_up()
-					stop_placing()
-			"dirt":
-				if board_manager.dirt_grid.is_in_grid(map_position):
-					level.place_down(map_position)
-					game_manager.pay_up()
-					stop_placing()
-			"water":
-				if board_manager.water_grid.is_in_grid(map_position):
-					level.place_down(map_position)
-					game_manager.pay_up()
-					stop_placing()
+	if _is_free(map_position) and _is_in_correct_place(map_position):
+		level.place_down(map_position)
+		game_manager.pay_up()
 
+func _is_free(map_position) -> bool:
+	var extra_tile = game_manager.get_extra_tile()
+	if ! board_manager.is_ocupied(map_position) and ! board_manager.is_ocupied(map_position+extra_tile):
+		return true
+	else: 
+		return false
+
+func _is_in_correct_place(map_position):
+	var extra_tile = game_manager.get_extra_tile()
+	match object_data.objects[game_manager.current_object].place:
+		"basic":
+			return board_manager.base_grid.is_in_grid(map_position) and board_manager.base_grid.is_in_grid(map_position + extra_tile)
+		"dirt":
+			return board_manager.dirt_grid.is_in_grid(map_position) and board_manager.dirt_grid.is_in_grid(map_position + extra_tile)
+		"water":
+			return board_manager.water_grid.is_in_grid(map_position) and board_manager.water_grid.is_in_grid(map_position + extra_tile)
 
 
