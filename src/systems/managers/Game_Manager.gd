@@ -23,6 +23,7 @@ func start_placing() -> void:
 func pay_up() -> void:
 	self.money -= object_data.get_cost_by_name(current_object)
 
+
 func can_pay() -> bool:
 	return object_data.get_cost_by_name(current_object) <= money
 
@@ -31,6 +32,10 @@ func get_extra_tile() -> Vector2:
 		return object_data.objects[current_object].ocupies
 	else:
 		 return Vector2.ZERO
+
+func add_money(value: int) -> void:
+	set_money(money + value)
+
 
 func set_money(value) -> void:
 	money = value

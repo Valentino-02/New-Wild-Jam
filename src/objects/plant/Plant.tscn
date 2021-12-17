@@ -1,21 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/objects/plant/Plant.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/UI/water_required.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/plants/flower_grown.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/UI/harvest_ready.png" type="Texture" id=4]
 
 [node name="Plant" type="Node2D"]
 script = ExtResource( 1 )
+water_icon = ExtResource( 2 )
+harvest_icon = ExtResource( 4 )
 
 [node name="PlantSprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 offset = Vector2( 0, -12 )
 
+[node name="AlertTween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
+
 [node name="AlertSprite" type="Sprite" parent="."]
 visible = false
-position = Vector2( 10, -22 )
-texture = ExtResource( 2 )
-centered = false
+position = Vector2( 0, -10 )
+texture = ExtResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
 input_pickable = false
@@ -23,4 +29,5 @@ input_pickable = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PoolVector2Array( -18, 0, 0, -10, 18, 0, 0, 10 )
 
+[connection signal="tween_completed" from="AlertTween" to="." method="_on_AlertTween_tween_completed"]
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

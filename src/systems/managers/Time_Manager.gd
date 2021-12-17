@@ -61,9 +61,9 @@ func normalize_time(t: int) -> int:
 	
 	return (day << DAY_OFFSET) + (hour << HR_OFFSET) + minute
 
-func get_time_array(time: int) -> Array:
-	var day = (time & DAY_MASK) >> DAY_OFFSET
-	var hour = (time & HR_MASK) >> HR_OFFSET
-	var minute = (time & MIN_MASK)
+func get_time_array(t: int) -> Array:
+	var day = (t & DAY_MASK) >> DAY_OFFSET
+	var hour = (t & HR_MASK) >> HR_OFFSET
+	var minute = (t & MIN_MASK)
 	
 	return [ day, hour, minute ]

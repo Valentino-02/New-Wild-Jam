@@ -4,8 +4,13 @@ var object_data = preload("res://src/objects/Object_Data.tres")
 var game_manager = preload("res://src/systems/managers/Game_Manager.tres")
 var time_manager = preload("res://src/systems/managers/Time_Manager.tres")
 
+export (Texture) var water_icon
+export (Texture) var harvest_icon
+
 onready var sprite: Sprite = $PlantSprite
 onready var alert_sprite: Sprite = $AlertSprite
+onready var alert_tween: Tween = $AlertTween
+var tween_positions := [ Vector2(0, -10), Vector2(0, -14) ]
 onready var click_area: Area2D = $Area2D
 var type: String 
 var type_data: Dictionary
@@ -35,7 +40,8 @@ func _ready() -> void:
 	var plant_textures = object_data.objects[type]["growth_textures"]
 	sprite.texture = load(plant_textures[plant_textures.size() - 1])
 	sprite.offset.y = object_data.objects[type]["v_offset"]
-	_set_alert_position()
+	
+	_start_tween()
 
 func _update_state() -> void:
 	sprite.texture = load(type_data.growth_textures[cur_state])
@@ -43,6 +49,8 @@ func _update_state() -> void:
 	if type_data.growth_time.size() == cur_state:
 		fully_grown = true
 		time_manager.disconnect("time_changed", self, "time_changed")
+		alert_sprite.visible = true
+		alert_sprite.texture = harvest_icon
 	else:
 		var growth_time: Array = type_data.growth_time[cur_state]
 		var growth_time_int: int = time_manager.date_to_int(growth_time[0], growth_time[1], growth_time[2])
@@ -61,6 +69,7 @@ func time_changed(_past_time, new_time) -> void:
 		needs_water = true
 		growth_remainder = time_manager.sub_times(next_growth, new_time)
 		alert_sprite.visible = true
+		alert_sprite.texture = water_icon
 
 func water() -> void:
 	next_growth = time_manager.add_times(time_manager.time, growth_remainder)
@@ -68,10 +77,32 @@ func water() -> void:
 	next_water = time_manager.add_times(time_manager.time, water_interval)
 	alert_sprite.visible = false
 
-func _set_alert_position() -> void:
-	alert_sprite.position = Vector2(float(sprite.texture.get_width()) / 2, -sprite.texture.get_height() - alert_sprite.texture.get_height())
+func harvest() -> void:
+	fully_grown = false
+	game_manager.add_money(type_data.harvest_value)
+	next_water = time_manager.add_times(time_manager.time, water_interval)
+	cur_state -= 1
+	
+	var growth_time: Array = type_data.growth_time[cur_state]
+	var growth_time_int: int = time_manager.date_to_int(growth_time[0], growth_time[1], growth_time[2])
+	last_growth = time_manager.time
+	next_growth = time_manager.add_times(last_growth, growth_time_int)
+	
+	_update_state()
+	alert_sprite.visible = false
 
 func _on_Area2D_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if needs_water and game_manager.state == "water":
 			water()
+		
+		if fully_grown and game_manager.state == "harvest":
+			harvest()
+
+func _start_tween() -> void:
+	alert_tween.interpolate_property(alert_sprite, "position", tween_positions[0], tween_positions[1], 1.0, alert_tween.TRANS_SINE, alert_tween.EASE_OUT)
+	alert_tween.start()
+
+func _on_AlertTween_tween_completed(_object: Object, _key: NodePath) -> void:
+	tween_positions.invert()
+	_start_tween()
