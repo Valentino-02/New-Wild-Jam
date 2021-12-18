@@ -14,7 +14,7 @@ var objects : Dictionary = {
 		"growth_textures": [
 			"res://assets/sprites/plants/apple_tree_1.png",
 			"res://assets/sprites/plants/apple_tree_2.png",
-			"res://assets/sprites/plants/apple_tree_3.png"
+			"res://assets/sprites/plants/apple_tree_3.png",
 			"res://assets/sprites/plants/apple_tree_3_no_fruit.png",
 			"res://assets/sprites/plants/apple_tree_3_with_fruit.png"
 		]
