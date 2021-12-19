@@ -15,16 +15,18 @@ func _process(_delta: float) -> void:
 	var grid_pos = board_manager.base_grid.world_to_map(mouse_pos)
 	var plant = board_manager.get_cell_node(grid_pos, 1)
 	
-	if plant == null:
-		visible = false
-		return
-	visible = true
+	if plant in get_tree().get_nodes_in_group("plants"):
 	
-	type_label.text = plant.type_data.display_name
-	if plant.needs_water:
-		status_label.text = "Requires water!"
-	elif plant.fully_grown:
-		status_label.text = "Ready to harvest!"
-	else:
-		var growth_time = time_manager.get_time_array(time_manager.sub_times(plant.next_growth, time_manager.time))
-		status_label.text = "Grows in %sd %sh %sm" % growth_time
+		if plant == null:
+			visible = false
+			return
+		visible = true
+		
+		type_label.text = plant.type_data.display_name
+		if plant.needs_water:
+			status_label.text = "Requires water!"
+		elif plant.fully_grown:
+			status_label.text = "Ready to harvest!"
+		else:
+			var growth_time = time_manager.get_time_array(time_manager.sub_times(plant.next_growth, time_manager.time))
+			status_label.text = "Grows in %sd %sh %sm" % growth_time

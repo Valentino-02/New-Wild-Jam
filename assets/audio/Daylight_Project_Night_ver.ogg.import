@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Daylight_Project_Night_ver.ogg-2b13e400c436060bf959985ac61b1d39.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Daylight_Project_Night_ver.ogg"
+dest_files=[ "res://.import/Daylight_Project_Night_ver.ogg-2b13e400c436060bf959985ac61b1d39.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

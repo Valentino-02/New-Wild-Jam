@@ -18,9 +18,19 @@ func _input(event: InputEvent) -> void:
 		position = get_global_mouse_position()
 	
 	if event.is_action_pressed("left_click") and ! event.is_echo():
+		_map_position = board_manager.base_grid.world_to_map(position)
 		if _is_placing:
-			_map_position = board_manager.base_grid.world_to_map(position)
 			place_down(_map_position)
+		if game_manager.state == "water":
+			var plant = board_manager.get_cell_node(_map_position, 1)
+			if plant in get_tree().get_nodes_in_group("plants"):
+				if plant.needs_water:
+					plant.water()
+		if game_manager.state == "harvest":
+			var plant = board_manager.get_cell_node(_map_position, 1)
+			if plant in get_tree().get_nodes_in_group("plants"):
+				if plant.fully_grown:
+					plant.harvest()
 	
 	if event.is_action_pressed("right_click") and ! event.is_echo():
 		if _is_placing:

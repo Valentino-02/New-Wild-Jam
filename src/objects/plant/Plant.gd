@@ -36,6 +36,7 @@ func place_down(map_position) -> void:
 	_update_state()
 
 func _ready() -> void:
+	add_to_group("plants")
 	type = game_manager.current_object
 	var plant_textures = object_data.objects[type]["growth_textures"]
 	sprite.texture = load(plant_textures[plant_textures.size() - 1])
@@ -90,6 +91,8 @@ func harvest() -> void:
 	
 	_update_state()
 	alert_sprite.visible = false
+
+
 
 func _on_Area2D_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
