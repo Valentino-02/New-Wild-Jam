@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/sprites/UI/build_icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/UI/hammer_button_pressed.png" type="Texture" id=1]
 [ext_resource path="res://src/UI/Build_List.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/Action_Menu.gd" type="Script" id=3]
-[ext_resource path="res://assets/sprites/UI/water_icon.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/UI/build_icon_pressed.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/UI/water_icon_pressed.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/UI/water_button_normal.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/UI/hammer_button_normal.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/UI/water_button_pressed.png" type="Texture" id=6]
 [ext_resource path="res://src/UI/Info_Panel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/sprites/UI/harvest_icon.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/UI/harvest_icon_pressed.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/UI/hammer_button_disabled.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/UI/sickle_button_normal.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/UI/water_button_disabled.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/UI/sickle_button_pressed.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/UI/sickle_button_disabled.png" type="Texture" id=12]
 
 [node name="ActionMenu" type="Control"]
 anchor_right = 1.0
@@ -29,41 +32,44 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-margin_right = 116.0
-margin_bottom = 46.0
+margin_right = 97.0
+margin_bottom = 39.0
 size_flags_horizontal = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 109.0
-margin_bottom = 39.0
+margin_right = 90.0
+margin_bottom = 32.0
 
 [node name="BuildButton" type="TextureButton" parent="VBoxContainer/PanelContainer/HBoxContainer"]
-margin_right = 32.0
-margin_bottom = 32.0
+margin_right = 25.0
+margin_bottom = 25.0
 toggle_mode = true
 action_mode = 0
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 1 )
+texture_disabled = ExtResource( 8 )
 
 [node name="WaterButton" type="TextureButton" parent="VBoxContainer/PanelContainer/HBoxContainer"]
-margin_left = 36.0
-margin_right = 68.0
-margin_bottom = 32.0
+margin_left = 29.0
+margin_right = 54.0
+margin_bottom = 25.0
 toggle_mode = true
 action_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 6 )
+texture_disabled = ExtResource( 10 )
 
 [node name="HarvestButton" type="TextureButton" parent="VBoxContainer/PanelContainer/HBoxContainer"]
-margin_left = 72.0
-margin_right = 102.0
-margin_bottom = 32.0
+margin_left = 58.0
+margin_right = 83.0
+margin_bottom = 25.0
 toggle_mode = true
 action_mode = 0
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 11 )
+texture_disabled = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
