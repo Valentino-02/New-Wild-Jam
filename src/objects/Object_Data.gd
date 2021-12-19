@@ -28,12 +28,12 @@ var objects : Dictionary = {
 		"icon_texture": "res://assets/sprites/UI/Tomatoe.png",
 		"place" : "dirt",
 		"v_offset": -12,
-		"growth_time": [ [ 0, 4, 0 ], [ 0, 4, 0 ], [ 0, 4, 0] ],
+		"growth_time": [ [ 0, 4, 0 ], [ 0, 4, 0 ], [ 0, 4, 0], [ 0, 4, 0]  ],
 		"growth_textures": [
 			"res://assets/sprites/plants/tomato_plant_1.png",
 			"res://assets/sprites/plants/tomato_plant_2.png",
 			"res://assets/sprites/plants/tomato_plant_3.png",
-			"res://assets/sprites/plants/tomato_plant_3_with_fruit.png",
+			"res://assets/sprites/plants/tomato_plant_3_with_flowers.png",
 			"res://assets/sprites/plants/tomato_plant_3_with_fruit.png"
 		]
 	},
