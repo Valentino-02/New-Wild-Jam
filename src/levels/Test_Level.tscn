@@ -277,7 +277,6 @@ offset = Vector2( 242.865, 94.6832 )
 [node name="Floor_TR" type="AnimatedSprite" parent="TR"]
 position = Vector2( 10, 85 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="BoardObjectSort" type="YSort" parent="TR"]
@@ -295,6 +294,7 @@ offset = Vector2( 242.865, 94.6832 )
 [node name="Floor_TL" type="AnimatedSprite" parent="TL"]
 position = Vector2( -510.365, 85 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="BoardObjectSort" type="YSort" parent="TL"]
@@ -311,7 +311,6 @@ offset = Vector2( 242.865, 94.6832 )
 [node name="Floor_BR" type="AnimatedSprite" parent="BR"]
 position = Vector2( 10, 362.923 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="BoardObjectSort" type="YSort" parent="BR"]
@@ -328,7 +327,6 @@ offset = Vector2( 242.865, 94.6832 )
 [node name="Floor_BL" type="AnimatedSprite" parent="BL"]
 position = Vector2( -509.187, 343.923 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="BoardObjectSort" type="YSort" parent="BL"]

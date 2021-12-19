@@ -19,7 +19,7 @@ var objects : Dictionary = {
 			"res://assets/sprites/plants/apple_tree_3_with_fruit.png"
 		]
 	},
-	"tomato": {
+	"Tomatoes": {
 		"path": "res://src/objects/plant/Plant.tscn",
 		"display_name": "Tomatoes",
 		"cost": 10,

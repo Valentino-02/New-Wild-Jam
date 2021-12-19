@@ -29,7 +29,8 @@ func _input(event: InputEvent) -> void:
 func placing_down() -> void:
 	if _is_placing == false:
 		_is_placing = true
-		_object_to_place = load(game_manager.current_object_path).instance()
+		var object = load(game_manager.current_object_path)
+		_object_to_place = object.instance()
 		self.add_child(_object_to_place)
 	if _is_placing == true:
 		_object_to_place.queue_free()

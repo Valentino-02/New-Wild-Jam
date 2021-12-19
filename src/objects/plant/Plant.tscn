@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/objects/plant/Plant.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/UI/water_required.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/plants/flower_grown.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/plants/blackberries_3_with_fruit.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/UI/harvest_ready.png" type="Texture" id=4]
 
 [node name="Plant" type="Node2D"]
